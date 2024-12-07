@@ -1,18 +1,27 @@
 package org.clinic;
 
-public class Specialty {
-    private String nameSpecialty;
+public enum Specialty {
+  ANESTHESIOLOGY("anestezjologia"),
+  CARDIOLOGY("kardiologia"),
+  DENTISTRY("stomatologia"),
+  DERMATOLOGY("dermatologia"),
+  GYNECOLOGY("ginekologia"),
+  ONCOLOGY("onkologia"),
+  ORTHOPEDICS("ordopedia"),
+  PEDIATRICS("pediatria"),
+  PSYCHIATRY("psychiatria"),
+  RADIOLOGY("radiologia"),
+  SURGERY("chirurgia"),
+  UROLOGY("urologia");
 
-    public Specialty(String nameSpecialty) {
-        this.nameSpecialty = nameSpecialty;
-    }
+  private final String name;
 
-    public String getNameSpecialty() {
-        return nameSpecialty;
-    }
+  Specialty(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public String toString() {
-        return "personel medyczny [Specjalizacja:" + nameSpecialty + "]";
-    }
+  @Override
+  public String toString() {
+    return this.name;
+  }
 }
