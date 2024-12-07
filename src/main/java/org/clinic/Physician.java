@@ -1,27 +1,24 @@
 package org.clinic;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class Physician {
-  private String firstName;
-  private String lastName;
-  private String pesel;
-  private String dateOfBirth;
-  private String phoneNumber;
-  private String email;
+public class Physician extends Person {
   private String ID;
   private List<Specialty> specialties;
 
 
-  public Physician(String firstName, String lastName, String pesel, String dateOfBirth, String phoneNumber, String email, String ID, List<Specialty> specialties) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.pesel = pesel;
-    this.dateOfBirth = dateOfBirth;
-    this.phoneNumber = phoneNumber;
-    this.email = email;
+  public Physician(
+      String firstName,
+      String lastName,
+      String pesel,
+      String dateOfBirth,
+      String phoneNumber,
+      String email,
+      String ID,
+      List<Specialty> specialties
+  ) {
+    super(firstName, lastName, pesel, dateOfBirth, phoneNumber, email);
+
     this.ID = ID;
     this.specialties = specialties;
   }
@@ -38,15 +35,8 @@ public class Physician {
     return specialties;
   }
 
-  private int getAge() {
-    LocalDate dateOfBirth = LocalDate.parse(this.dateOfBirth);
-    LocalDate now = LocalDate.now();
-
-    return (int) ChronoUnit.YEARS.between(dateOfBirth, now);
-  }
-
   public boolean hasSpecialty(Specialty specialty) {
-    for(Specialty curr : specialties) {
+    for (Specialty curr : specialties) {
       if (curr == specialty) {
         return true;
       }
